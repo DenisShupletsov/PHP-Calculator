@@ -1,6 +1,6 @@
 <?php 
-
-$objective  = $_GET["objective"];
+$objective = str_replace(" ", "", $_POST["objective"]);
+//var_dump($objective);
 $number = explode("+", $objective);
 
 $return = $number[0] + $number[1];
@@ -14,7 +14,7 @@ $return = $number[0] + $number[1];
  </head>
  <body>
 
-   <form action="/" method="get">
+   <form action="/" method="post">
 
    <p> <input type="text" name="objective" size="10" required></input></p>
    <p>= <?php echo $return; ?></p>
