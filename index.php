@@ -1,9 +1,35 @@
-<?php 
-$objective = str_replace(" ", "", $_POST["objective"]);
-//var_dump($objective);
-$number = explode("+", $objective);
+<?php
 
-$return = $number[0] + $number[1];
+$objective = str_replace(" ", "", $_POST["objective"]);
+
+$piece = str_split($objective);
+
+$sum_of_piece = count($piece);
+
+foreach ($piece as $element) {
+  if (is_numeric($element)) {
+      $number[] = $element;
+      //echo var_export($element, true) . " - число", PHP_EOL;
+  } else {
+      //echo var_export($element, true) . " - НЕ число", PHP_EOL;
+      $symbol = $element;
+  }
+}
+
+switch ($symbol) {
+  case '+':
+      $return = $number[0] + $number[1];
+      break;
+  case '-':
+      $return = $number[0] - $number[1];
+      break;
+  case '*':
+      $return = $number[0] * $number[1];
+      break;
+  case '/':
+      $return = $number[0] / $number[1];
+      break;
+};
 
 ?>
 
