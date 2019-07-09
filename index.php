@@ -6,13 +6,16 @@ $piece = str_split($objective);
 
 $sum_of_piece = count($piece);
 
+$i = 0;
+
 foreach ($piece as $element) {
   if (is_numeric($element)) {
-      $number[] = $element;
+      $number[$i] = $number[$i].$element;
       //echo var_export($element, true) . " - число", PHP_EOL;
   } else {
       //echo var_export($element, true) . " - НЕ число", PHP_EOL;
       $symbol = $element;
+      $i++;
   }
 }
 
