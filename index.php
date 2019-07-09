@@ -4,8 +4,6 @@ $objective = str_replace(" ", "", $_POST["objective"]);
 
 $piece = str_split($objective);
 
-$sum_of_piece = count($piece);
-
 $i = 0;
 
 foreach ($piece as $element) {
@@ -19,18 +17,28 @@ foreach ($piece as $element) {
   }
 }
 
+$result = 0;
+
 switch ($symbol) {
   case '+':
-      $return = $number[0] + $number[1];
+        foreach($number as $value){
+          $result = $result + $value;
+        }
       break;
   case '-':
-      $return = $number[0] - $number[1];
+        foreach($number as $value){
+          $result = $result - $value;
+        }
       break;
   case '*':
-      $return = $number[0] * $number[1];
+        foreach($number as $value){
+          $result = $result * $value;
+        }
       break;
   case '/':
-      $return = $number[0] / $number[1];
+        foreach($number as $value){
+          $result = $result / $value;
+        }
       break;
 };
 
@@ -46,7 +54,7 @@ switch ($symbol) {
    <form action="/" method="post">
 
    <p> <input type="text" name="objective" size="10" required></input></p>
-   <p>= <?php echo $return; ?></p>
+   <p>= <?php echo $result; ?></p>
    <p> <input type="submit" value="calculate"></input> </p>
 
    </form>
