@@ -9,40 +9,37 @@ $i = 0;
 foreach ($piece as $element) {
   if (is_numeric($element)) {
       $number[$i] = $number[$i] * 10 + $element;
-      //echo var_export($element, true) . " - число", PHP_EOL;
   } else {
-      //echo var_export($element, true) . " - НЕ число", PHP_EOL;
-      $symbol = $element;
+      $symbol[$i] = $element;
       $i++;
   }
 }
 
-switch ($symbol) {
-  case '+':
-        $result = $number[0];
-        for ($i = 1; $i < count($number); $i++) {
-          $result = $result + $number[$i];
-        }
-      break;
-  case '-':
-        $result = $number[0];
-        for ($i = 1; $i < count($number); $i++) {
-          $result = $result - $number[$i];
-        }
-      break;
-  case '*':
-        $result = $number[0];
-        for ($i = 1; $i < count($number); $i++) {
-          $result = $result * $number[$i];
-        }
-      break;
-  case '/':
-        $result = $number[0];
-        for ($i = 1; $i < count($number); $i++) {
-          $result = $result / $number[$i];
-        }
-      break;
-};
+$result = $number[0];
+
+$g = 0;
+
+for ($i = 1; $i < count($number); $i++) {
+
+  switch ($symbol[$g]) {
+    case '+':
+            $result = $result + $number[$i];
+        break;
+    case '-':
+            $result = $result - $number[$i];
+        break;
+    case '*':
+            $result = $result * $number[$i];
+        break;
+    case '/':
+            $result = $result / $number[$i];
+        break;
+  }
+
+  $g++;
+
+}
+
 
 
 ?>
